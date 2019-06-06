@@ -21,7 +21,7 @@ public class SimpleNotePad extends JFrame{
     JMenuItem saveFile = new JMenuItem("Save File");
     JMenuItem printFile = new JMenuItem("Print File");
 	 JMenuItem openFile = new JMenuItem("Open File");
-    JMenuItem undo = new JMenuItem("Undo");
+	//delete undo as it is not implemented
     JMenuItem copy = new JMenuItem("Copy");
     JMenuItem paste = new JMenuItem("Paste");
 	 JMenuItem replace = new JMenuItem("Replace");
@@ -42,14 +42,13 @@ public class SimpleNotePad extends JFrame{
         editMenu.add(copy);
         editMenu.add(paste);
 		  editMenu.add(replace);
-		  //made new class for New, Save, Print, Copy, Undo, and Paste to decrease bloat
+		  //made new class for New, Save, Print, Copy, and Paste to decrease bloat
 		  //deleted set action commands because they were no longer used
         newFile.addActionListener(new New(pane));
         saveFile.addActionListener(new SaveFile(pane));
         printFile.addActionListener(new PrintFile(pane));
         copy.addActionListener(new Copy(pane));
         paste.addActionListener(new Paste(pane));
-        undo.addActionListener(new Undo(pane));
 		  openFile.addActionListener(new OpenFile(pane));
 		  replace.addActionListener(new Replace(pane));
         menuBar.add(fileMenu);
@@ -67,6 +66,7 @@ public class SimpleNotePad extends JFrame{
     }
 	 
    //deleted actionListener action in main class as it is now split up into several classes
+//also gets rid of long if/else statement like switch
 	 
 	 public void addRecent(){
 		 for(int i = 0; i < 5; i++){
