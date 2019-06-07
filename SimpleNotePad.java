@@ -71,9 +71,12 @@ public class SimpleNotePad extends JFrame{
 	 public void addRecent(){
 		 for(int i = 0; i < 5; i++){
 			 if(recentFiles.get(i) != null){
-				 JMenuItem x = new JMenuItem(recentFiles.get(i));
+				 String s = recentFiles.get(i);
+				 Path p = Paths.get(s);
+				 String file = p.getFileName().toString();
+				 JMenuItem x = new JMenuItem(file);
 				 openRecent.add(x);
-				 x.addActionListener(new OpenRecentFile(pane,recentFiles.get(i)));
+				 x.addActionListener(new OpenRecentFile(pane,s));
 			 }
 		 }
 	 }
